@@ -10,7 +10,7 @@ import java.io.PrintStream;
  * Created by mike on 8/10/15.
  */
 public class TribotPrintStream extends PrintStream {
-    public TribotPrintStream( Script script ) {
+    public TribotPrintStream( final Script script ) {
         super( new OutputStream() {
             char[] buffer = new char[ 80 ];
             int current = 0;

@@ -14,8 +14,10 @@ public class Antiban extends ABCUtil {
     private static final long MAX_WAIT_STEP = 10L;
 
     private static ABCUtil _abc;
+    private static ABCProperties _props;
 
     static {
+    	_props = new ABCProperties();
         _abc = new Antiban();
     }
 
@@ -73,13 +75,12 @@ public class Antiban extends ABCUtil {
     }
 
     public static void sleepABC2( int previous_waiting_time, boolean hovering, boolean menu_open, boolean under_attack ) {
-        ABCProperties props = _abc.getProperties();
 
-        props.setWaitingTime( previous_waiting_time );
-        props.setHovering( hovering );
-        props.setMenuOpen( menu_open );
-        props.setUnderAttack( under_attack );
-        props.setWaitingFixed( false );
+        _props.setWaitingTime( previous_waiting_time );
+        _props.setHovering( hovering );
+        _props.setMenuOpen( menu_open );
+        _props.setUnderAttack( under_attack );
+        _props.setWaitingFixed( false );
 
         waitTime( _abc.generateReactionTime() );
     }
